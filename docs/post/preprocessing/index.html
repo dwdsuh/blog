@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Day1">
+<meta name="description" content="Describe your website">
+<meta name="generator" content="Hugo 0.55.6" />
+<title>Preprocessing</title>
+<link rel="shortcut icon" href="https://dwdsuh.github.io/blog/images/favicon.ico">
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/style.css">
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/monosocialiconsfont.css">
+
+
+
+<link href="https://dwdsuh.github.io/blog/index.xml" rel="alternate" type="application/rss+xml" title="Dayone&#39;s Blog" />
+
+
+<meta property="og:title" content="Preprocessing" />
+<meta property="og:description" content="[Preprocessing]: How to Randomly Sample from a File of Tremendous Size. Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dwdsuh.github.io/blog/post/preprocessing/" />
+<meta property="article:published_time" content="2019-07-14T16:31:46&#43;09:00"/>
+<meta property="article:modified_time" content="2019-07-14T16:31:46&#43;09:00"/>
+
+
+
+<meta itemprop="name" content="Preprocessing">
+<meta itemprop="description" content="[Preprocessing]: How to Randomly Sample from a File of Tremendous Size. Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method.">
+
+
+<meta itemprop="datePublished" content="2019-07-14T16:31:46&#43;09:00" />
+<meta itemprop="dateModified" content="2019-07-14T16:31:46&#43;09:00" />
+<meta itemprop="wordCount" content="292">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Preprocessing"/>
+<meta name="twitter:description" content="[Preprocessing]: How to Randomly Sample from a File of Tremendous Size. Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method."/>
+<meta name="twitter:site" content="@https://www.twitter.com/"/>
+
+
+    </head>
+<body>
+    <nav class="main-nav">
+	
+		<a href='https://dwdsuh.github.io/blog/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+ 		<a href='/blog/about/'>About</a>
+  	
+
+	
+		<a class="cta" href="https://dwdsuh.github.io/blog/index.xml">Subscribe</a>
+	
+</nav>
+
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1>Preprocessing</h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        July 14, 2019
+        <br>
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
+
+<h3 id="preprocessing-how-to-randomly-sample-from-a-file-of-tremendous-size">[Preprocessing]: How to Randomly Sample from a File of Tremendous Size.</h3>
+
+<p><img src="https://media.makeameme.org/created/big-data-big-5ab38c.jpg" alt="big data image" /></p>
+
+<p>Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method.</p>
+
+<p>Thanks to the <a href="http://metadatascience.com/2014/02/27/random-sampling-from-very-large-files/">Massould&rsquo;s wonderful code</a>, I&rsquo;ve successfully randomly sampled sentences in a few seconds.</p>
+
+<p>Python Code:</p>
+
+<pre><code class="language-python">def sampling_from_file_faster(filepath, sample_num):
+    sentence_list=[]
+    with open(filepath, &quot;rb&quot;) as f:
+        f.seek(0,2)
+        filesize=f.tell()
+        
+        sample_index=sorted(random.sample(range(filesize), sample_num))
+        
+        for i in range(sample_num):
+            f.seek(sample_index[i])
+            f.readline() #skip the current line
+            sentence_list.append(f.readline().rstrip().decode(&quot;utf-8&quot;))
+            print(&quot;Preprocessing: %0.2f percent completed&quot;%(i/sample_num*100), end='\r')
+    return sentence_list
+</code></pre>
+
+<p>Explanation for Each Line</p>
+
+<ul>
+<li>Opening the file in Binary Mode</li>
+</ul>
+
+<pre><code class="language-python">with open(filepath, &quot;rb&quot;) as f:
+</code></pre>
+
+<blockquote>
+<p>Using option &ldquo;rb&rdquo; saves a lot of time. Binary Code can be converted into &ldquo;human-friendly letter&rdquo; with the method .decode(&ldquo;utf-8&rdquo;).</p>
+</blockquote>
+
+<ul>
+<li><p>Setting the pointer</p>
+
+<pre><code class="language-python">f.seek(0,2)
+</code></pre>
+
+<blockquote>
+<p>f.seek(0,2) seeks for the file end, the process of which is necessary to measure the file size.</p>
+</blockquote>
+
+<ul>
+<li>Measuring the file size
+<code>python
+filesize=f.tell()
+</code></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>f.tell() returns an integer that tell the position of the file end in byte-wise.</p>
+</blockquote>
+
+<ul>
+<li><p>Sampling the indices of sample</p>
+
+<pre><code class="language-python">sample_index=sorted(random.sample(range(filesize), sample_num))
+</code></pre>
+
+<blockquote>
+<p>Selecting the sample by the byte-wise position.</p>
+</blockquote>
+
+<ul>
+<li>Get samples by the indices
+<code>python
+f.seek(sample_index[i])
+f.readline()
+sentence_list.append(f.readline().rstrip().decode(&quot;utf-8&quot;))
+</code></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>First, find the sentence that include the byte of the sample index. Second, skip the current line since the index are likely to refer to the middle of a sentence. Third, append the next sentence to the pre-declared list, converting binary code to utf-8 at the same time.</p>
+</blockquote>
+
+<p><strong>Now we have a fancy method that can sample sentence from tremendous-size file in a few seconds.</strong></p>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    <a href="https://twitter.com/Your%20Twitter%20account">
+    <img class="avatar" src="https://dwdsuh.github.io/blog/images/avatar.png">
+    <div>
+        <span class="dark">Day1</span>
+        <span>I&#39;m an blogger.</span>
+    </div>
+    </a>
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fdwdsuh.github.io%2fblog%2fpost%2fpreprocessing%2f - Preprocessing by @Your%20Twitter%20account"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+    </section>
+</footer>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/blog/post/first-post/">First Post<aside class="dates">Jul 14 2019</aside></a>
+        </li>
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.dribbble.com/">
+        circledribble
+    </a>
+    
+    <a class="symbol" href="https://www.facebook.com/">
+        circlefacebook
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2019 Day1
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://dwdsuh.github.io/blog/js/main.js"></script>
+<script src="https://dwdsuh.github.io/blog/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>
