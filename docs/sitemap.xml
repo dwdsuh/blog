@@ -70,13 +70,13 @@
   </url>
   
   <url>
-    <loc>https://dwdsuh.github.io/hugo-website/categories/golang/</loc>
+    <loc>https://dwdsuh.github.io/hugo-website/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dwdsuh.github.io/hugo-website/tags/golang/</loc>
+    <loc>https://dwdsuh.github.io/hugo-website/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
