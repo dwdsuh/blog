@@ -13,7 +13,7 @@ disqusShortname = "spf13"
 [params]
 	name = "Day1"
 	description = "Describe your website"
-	bio = "Woulb-be Deep Learning Engineer"
+	bio = "Would-be Deep Learning Engineer"
 	# Enter optionally your twitter account
 	twitter = "Your Twitter account"
 	enableRSS = true
