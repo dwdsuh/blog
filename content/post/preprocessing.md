@@ -12,7 +12,7 @@ draft: false
 
 
 
-Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method. 
+Dealing with Big Data, I usually have to handle data "bigger" than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method. 
 
 Thanks to the [Massould's wonderful code](http://metadatascience.com/2014/02/27/random-sampling-from-very-large-files/), I've successfully randomly sampled sentences in a few seconds.
 
