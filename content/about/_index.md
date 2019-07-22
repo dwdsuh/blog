@@ -5,12 +5,25 @@ hidden = true
 menu = "main"
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ullam earum dolorum! Sed, perspiciatis.
+### Background
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+ + Major: English Literature
 
+ + Residence: Je-ju & Seoul
+
+ + Nationality: Korea, Republic of
+
+ + E-mail: dwdsuh@gmail.com
+
+ 
 ***
 
-### Lorem ipsum dolor.
+### Work Experiance
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dicta corporis ad inventore itaque impedit dolor atque amet exercitationem! Veniam qui voluptas maiores vel laudantium necessitatibus, velit ducimus! Iste hic facere, accusamus fugiat enim facilis.
++ the Office of Assembly-member Bill Quirk. Hayward, CA, 2017.7-2017.8
+
++ Industrial Bank of Korea(Big Data Center), Seoul, Korea, 2019.5-2019.6
+
++ Kakao Corp (AI lab), Jeju, Korea, 2019.7-current
+
+

@@ -6,10 +6,24 @@
     <description>Recent content on Dayone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jul 2019 16:31:46 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jul 2019 12:07:38 +0900</lastBuildDate>
     
 	<atom:link href="https://dwdsuh.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux Command Cheat Sheet/리눅스 명령어 정리</title>
+      <link>https://dwdsuh.github.io/blog/post/linux-command-cheat-sheet/</link>
+      <pubDate>Mon, 22 Jul 2019 12:07:38 +0900</pubDate>
+      
+      <guid>https://dwdsuh.github.io/blog/post/linux-command-cheat-sheet/</guid>
+      <description>Linux Command Cheat Sheet/ 리눅스 명령어 정리 This blog post is a summary of Mr. Schafer&amp;rsquo;s youtube video
+find commend in linux  find .  &amp;ndash;&amp;gt; 모든 파일 탐색
+ find . -type d  &amp;ndash;&amp;gt; 디렉토리 탐색. 파일 탐색은 -type f
+ find . -type f -name &amp;ldquo;파일이름&amp;rdquo;  &amp;ndash;&amp;gt; 파일이름에 해당하는 파일 찾기 + find . type f -iname &amp;ldquo;파일이름&amp;rdquo;
+&amp;ndash;&amp;gt; i의 의미는 capital insensitive
+ find .</description>
+    </item>
     
     <item>
       <title>Preprocessing</title>
@@ -17,17 +31,7 @@
       <pubDate>Sun, 14 Jul 2019 16:31:46 +0900</pubDate>
       
       <guid>https://dwdsuh.github.io/blog/post/preprocessing/</guid>
-      <description>[Preprocessing]: How to Randomly Sample from a File of Tremendous Size. Dealing with Big Data, I usually face a data file larger than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method.</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>https://dwdsuh.github.io/blog/post/first-post/</link>
-      <pubDate>Sun, 14 Jul 2019 12:07:38 +0900</pubDate>
-      
-      <guid>https://dwdsuh.github.io/blog/post/first-post/</guid>
-      <description>#pls god help me to open my new blog
-##Im trying again to open my first blog welcome to my blog. pls come back other time.</description>
+      <description>[Preprocessing]: How to Randomly Sample from a File of Tremendous Size. Dealing with Big Data, I usually have to handle data &amp;ldquo;bigger&amp;rdquo; than 10GB. Last week, I wanted to sample 100K sentences from the file of 50M-ish sentences. At first, I naively wrote a code to open the file and select samples using indexing samples with numpy.random. Unfortunately, the code was starting to deprive me of my lifetime. I cannot help interrupting the code and searching for the faster method.</description>
     </item>
     
   </channel>
