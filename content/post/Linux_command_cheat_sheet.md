@@ -1,5 +1,5 @@
 ---
-title: "Linux Command Cheat Sheet/리눅스 명령어 정리"
+title: "[Bash] Linux Command Cheat Sheet / 리눅스 명령어 정리"
 date: 2019-07-22T12:07:38+09:00
 draft: false
 ---
@@ -13,6 +13,20 @@ draft: false
 
 
 This blog post is a summary of [Mr. Schafer's youtube video](https://www.youtube.com/playlist?list=PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c)
+
+
+
+### Mac Terminal Cheat Sheet
+
+
+
+- Ctrl+a: 맨 앞으로
+- Ctrl+e: 맨 뒤로
+- Opt+마우스 클릭: 커서 이동
+- Ctrl+u: 커서 앞의 내용 모두 삭제
+- Ctrl+k: 커서 뒤의 내용 모두 삭제
+- drag and drop folder: 디렉토리 경로 완성
+
 
 
 

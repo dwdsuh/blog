@@ -1,5 +1,5 @@
 ---
-title: "Preprocessing"
+title: "[Python] Preprocessing \"Big Data\" / 대용량 파일 전처리"
 date: 2019-07-14T16:31:46+09:00
 draft: false
 ---

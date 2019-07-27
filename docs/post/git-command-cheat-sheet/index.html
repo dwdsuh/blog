@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Day1">
+<meta name="description" content="Describe your website">
+<meta name="generator" content="Hugo 0.55.6" />
+<title></title>
+<link rel="shortcut icon" href="https://dwdsuh.github.io/blog/images/favicon.ico">
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/style.css">
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="https://dwdsuh.github.io/blog/css/monosocialiconsfont.css">
+
+
+
+<link href="https://dwdsuh.github.io/blog/index.xml" rel="alternate" type="application/rss+xml" title="Dayone&#39;s Blog" />
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Git Command Cheat Sheet 1. Basics  check out your git version
+  git --version   change username and email  git config --global user.name &quot;A-one_Day1&quot; git config --global user.email &quot;dwdsuh@gmail.com&quot;   help  git help config git config --help  config is just an example. you can type clone, merge etc
+ initialize git  git init   remove git  rm -rf .git   check out the state  git status   make some file not tracked by git(not to push to repository)  touch ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dwdsuh.github.io/blog/post/git-command-cheat-sheet/" />
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Git Command Cheat Sheet 1. Basics  check out your git version
+  git --version   change username and email  git config --global user.name &quot;A-one_Day1&quot; git config --global user.email &quot;dwdsuh@gmail.com&quot;   help  git help config git config --help  config is just an example. you can type clone, merge etc
+ initialize git  git init   remove git  rm -rf .git   check out the state  git status   make some file not tracked by git(not to push to repository)  touch .">
+
+
+
+<meta itemprop="wordCount" content="1268">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Git Command Cheat Sheet 1. Basics  check out your git version
+  git --version   change username and email  git config --global user.name &quot;A-one_Day1&quot; git config --global user.email &quot;dwdsuh@gmail.com&quot;   help  git help config git config --help  config is just an example. you can type clone, merge etc
+ initialize git  git init   remove git  rm -rf .git   check out the state  git status   make some file not tracked by git(not to push to repository)  touch ."/>
+<meta name="twitter:site" content="@https://www.twitter.com/"/>
+
+
+    </head>
+<body>
+    <nav class="main-nav">
+	
+		<a href='https://dwdsuh.github.io/blog/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+ 		<a href='/blog/about/'>About</a>
+  	
+
+	
+		<a class="cta" href="https://dwdsuh.github.io/blog/index.xml">Subscribe</a>
+	
+</nav>
+
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1></h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        January 1, 0001
+        <br>
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
+
+<h2 id="git-command-cheat-sheet">Git Command Cheat Sheet</h2>
+
+<h3 id="1-basics">1. Basics</h3>
+
+<ul>
+<li>check out your git version<br /></li>
+</ul>
+
+<pre><code class="language-bash">  git --version
+</code></pre>
+
+<ul>
+<li>change username and email</li>
+</ul>
+
+<pre><code class="language-bash">  git config --global user.name &quot;A-one_Day1&quot;
+  git config --global user.email &quot;dwdsuh@gmail.com&quot;
+</code></pre>
+
+<ul>
+<li>help</li>
+</ul>
+
+<pre><code class="language-bash">  git help config
+  git config --help
+</code></pre>
+
+<p>config is just an example. you can type clone, merge etc</p>
+
+<ul>
+<li>initialize git</li>
+</ul>
+
+<pre><code class="language-bash">  git init
+</code></pre>
+
+<ul>
+<li>remove git</li>
+</ul>
+
+<pre><code class="language-bash">  rm -rf .git
+</code></pre>
+
+<ul>
+<li>check out the state</li>
+</ul>
+
+<pre><code class="language-bash">  git status
+</code></pre>
+
+<ul>
+<li>make some file not tracked by git(not to push to repository)</li>
+</ul>
+
+<pre><code class="language-bash">  touch .gitignore
+  #open with text editor
+  #add the file name which you want to get ignored
+</code></pre>
+
+<ul>
+<li>git overview</li>
+</ul>
+
+<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/git_overview.png" alt="git_overview" /></p>
+
+<ul>
+<li>add files to the staging area</li>
+</ul>
+
+<pre><code class="language-bash">  git add -A #add all files
+  git status #check what is in the staging area
+</code></pre>
+
+<ul>
+<li>remove files from the staging area</li>
+</ul>
+
+<pre><code class="language-bash">  git reset &lt;file name&gt; #remove &lt;file name&gt; from the staging area
+  git reset #remove all files from the staging area
+</code></pre>
+
+<ul>
+<li>make commit</li>
+</ul>
+
+<pre><code class="language-bash">  git commit -m &quot;Commit Message&quot;
+</code></pre>
+
+<ul>
+<li>check the history</li>
+</ul>
+
+<pre><code class="language-bash">  git log
+</code></pre>
+
+<ul>
+<li>cloning a remote repostitory</li>
+</ul>
+
+<pre><code class="language-bash">  git clone &lt;url&gt; &lt;where to clone&gt;
+  #example
+  git clone https://github.com/superwonderfulrepo.git .   # . means current directory 
+</code></pre>
+
+<ul>
+<li>viewing information about the remote repository</li>
+</ul>
+
+<pre><code class="language-bash">  git remote -v #info about the remote repository
+  git branch -a #list every branch of the repository
+</code></pre>
+
+<ul>
+<li>pushing changes</li>
+</ul>
+
+<pre><code class="language-bash">  git diff #show the changes that I made
+  git status
+  git add -A
+  git commit -m &quot;commitment message&quot;
+  
+  git pull origin master #pull every change from the remote repo
+  git push origin master #origin: name of the remote repo / master: branch
+</code></pre>
+
+<ul>
+<li>common workflow</li>
+</ul>
+
+<pre><code class="language-bash">  git branch &lt;branch_name&gt; #make a branch. people usually set the branch name with the task they gon do within that branch
+  
+  git branch #check the list of the branches
+  git checkout &lt;branch_name&gt; #moving on to the other branch 
+  # make changes like editing your python script or bash script
+  git add -A
+  git commit -m &quot;commitment message&quot; #we successfully commit the change to the local branch. no effect on our remote repo
+  git push -u origin &lt;branch_name&gt; #origin: the name of the remote repo
+  git branch -a #see all of our branch
+  
+  git checkout master
+  git pull origin master
+  
+  git branch --merged #checkout the branched that we merged. Nothing but master would show up at the first time
+  git merge &lt;branch_name&gt; #you should be in the master branch to merge the other branch
+  git push origin master #push the change to the remote repo
+</code></pre>
+
+<ul>
+<li>Delete the branch</li>
+</ul>
+
+<pre><code class="language-bash">  git branch --merged #check out the branched which have already been merged. If the branch name showes up, it means the branch would be deleted since it is already merged to the master branch.
+  
+  git branch -d &lt;branch_name&gt; #but the branch exists in the remote repo
+  git push origin --delete &lt;branch_name&gt; #delete the branch in the remote repo
+</code></pre>
+
+<ul>
+<li>example code (test yourself if you understand what&rsquo;s going on with those codes)</li>
+</ul>
+
+<pre><code class="language-bash">  git branch subtract
+  git checkout subtract
+  ## do something with the subtract function in your file
+  git status
+  git add -A
+  git commit -m &quot;editted substract function&quot;
+  git push -u origin subtract
+  git checkout master
+  git pull origin master
+  git merge subtract
+  git push origin master
+  git branch --merged
+  git branch -d subtract
+  git push origin --delete subtract
+</code></pre>
+
+<h3 id="2-fixing-mistakes-and-undoing-bad-commits">2. Fixing Mistakes and Undoing Bad Commits</h3>
+
+<ul>
+<li>Before you made any commit: Undo what you have done</li>
+</ul>
+
+<pre><code class="language-bash">  git checkout &lt;file_name&gt;
+</code></pre>
+
+<ul>
+<li>After you made commit: edit the commit message of the very last commit</li>
+</ul>
+
+<pre><code class="language-bash">  git commit --amend -m &quot;commit message of the commit that you want to undo&quot;
+  
+  git log #check out you edited it properly
+</code></pre>
+
+<ul>
+<li>Adding the change to the last commit</li>
+</ul>
+
+<pre><code class="language-bash">  #example: assume that you want to .gitignore to the last commit
+  
+  touch .gitignore
+  git status
+  git add .gitignore 
+  
+  git commit --amend ## this show interactive editer/ :wq
+  git log #check out that the number of commits has not chaged
+  git log --stat 
+</code></pre>
+
+<ul>
+<li>Cherry-Pick (when you made commit in the wrong branch)</li>
+</ul>
+
+<pre><code class="language-bash">  git log #grab the log of the commit
+  git checkout &lt;branch_name&gt;
+  git log
+  git cherry-pick &lt;hash of the log&gt; #brought the commit from the new branch from the master branch
+  git log #now we can see the commit is added to our new branch 
+  git checkout master
+  git log #but we still have the commit in our master branch
+  
+  
+  # Three ways to undo the commit(soft, mixed, hard)
+  
+  git reset --soft &lt;hash of the log&gt;
+  git log
+  git status #still have changes in the staging area
+  
+  git reset &lt;hash of the log&gt; #reset mixed is the default
+  git status #still have changes in the working directory
+  
+  git reset --hard &lt;hash of the log&gt; #Be Careful!! It gon remove all the changes in the tracked files. But if you made a new file during the commit, the file would not be deleted. 이미 있던 파일의 수정사항은 다 없어지고, 새로 만든 파일을 없어지지 않는다. 
+  
+  git clean -df #remove every untracked &quot;d&quot;irectories and &quot;f&quot;iles
+</code></pre>
+
+<ul>
+<li>Show commits by Chronological Order (This can be a Life Saver)</li>
+</ul>
+
+<pre><code class="language-bash">  git reflog #walk through what you have doen
+  
+  git checkout &lt;hash of the log&gt; #we are in the detached head state --&gt; this will be garbage-collected in the future. 
+  git log
+  git branch backup #make &lt;backup&gt; branch
+  git branch
+  git checkout master
+  git branch
+  git checkout backup
+  git log
+</code></pre>
+
+<ul>
+<li>When Others Already Pulled the Changes</li>
+</ul>
+
+<pre><code class="language-bash">  git log
+  git revert &lt;hash of the commit&gt;
+  git log
+  
+  
+  git diff &lt;hash of commit 1&gt; &lt;hash of commit 2&gt; #this showed the difference between two commits
+</code></pre>
+
+<h3 id="3-stash-commend">3. Stash Commend</h3>
+
+<p>Commends when you want to save the current  status in the temporary space.</p>
+
+<p>stash: v. store (something) safely and secretly in a specified place.</p>
+
+<ul>
+<li>stash our changes</li>
+</ul>
+
+<pre><code class="language-bash">  #working on something in some branch
+  git stash save &quot;type some message worked on add function&quot;
+  git diff #nothing showes up
+  git status #nothing to commit
+  git stash list #shows the stashes 
+  git stash apply &lt;first col that appeared in the list above&gt; 
+  git stash list # stash is still there. we are taking the change but not getting rid of it. 
+  git checkout -- . #reset to where we were
+  
+  git stash list
+  git stash pop #grap the very first stash in the list, apply the change, and drop the stash 
+  
+  git stash save &quot;example message&quot;
+  git stash list
+  #do something
+  git stash save &quot;did something else&quot;
+  git stash list
+  git stash pop
+  
+  git stash drop &lt;name of the stash&gt; #drop the stash
+  git stash list
+  
+  git stash clear #drop all stashes
+  git stash list
+</code></pre>
+
+<ul>
+<li><p>workflow</p>
+
+<ul>
+<li>Senerio: We were working on a master branch and the works have not commited yet. You realize the works should be commited in the other branch. You can stash the changes, checkout the branch, and apply the changes.</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-bash">  #on master branch work on something
+  git stash save &quot;Oops. I was working on the master branch&quot;
+  git status
+  git checkout add #moving to add branch
+  git stash pop 
+  git diff
+  git add .
+  git commit -m &quot;commit message&quot;
+</code></pre>
+
+<h3 id="4-git-add">4. git add</h3>
+
+<pre><code class="language-bash">git add -A
+git add --all #those two commands are identical. those add every change to the staging area even though you are in a subdirectory,
+
+git add -A my_dir/ #add changes within the my_dir to the staging area. Leave the changes in the parent directory intact. 
+git add my_dir/ #this do the exactly the same thing. 
+
+git add --no-all my_dir #Not staging the deleted files in my_dir
+
+git add -u #same as --update. Stages &quot;deleted&quot;, &quot;modified&quot; files but not untracked files(newly touched).
+
+git add -u my_dir/ 
+
+git add . # . means current directory
+#if you are in the top directory it is same with &quot;git add -A&quot;
+
+git add -A # add all changes in the entire tree no matter where you are currnetly in. 
+
+git add * #not recommended. * is shell command. do not include hidden files. 
+</code></pre>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    <a href="https://twitter.com/Your%20Twitter%20account">
+    <img class="avatar" src="https://dwdsuh.github.io/blog/images/avatar.png">
+    <div>
+        <span class="dark">Day1</span>
+        <span>I&#39;m a Bayesian/Data Scientist/AI Engineer.</span>
+    </div>
+    </a>
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fdwdsuh.github.io%2fblog%2fpost%2fgit-command-cheat-sheet%2f -  by @Your%20Twitter%20account"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+    </section>
+</footer>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/blog/post/git_tutorial/">Git Command Cheat Sheet<aside class="dates">Jul 27 2019</aside></a>
+        </li>
+    
+        <li>
+            <a href="/blog/post/searhing_stragegy/">Searhing_strategy<aside class="dates">Jul 23 2019</aside></a>
+        </li>
+    
+        <li>
+            <a href="/blog/post/estimator/">tf.estimator/텐서플로우 에스티메이터 활용하기<aside class="dates">Jul 23 2019</aside></a>
+        </li>
+    
+        <li>
+            <a href="/blog/post/linux-command-cheat-sheet/">Linux Command Cheat Sheet/리눅스 명령어 정리<aside class="dates">Jul 22 2019</aside></a>
+        </li>
+    
+        <li>
+            <a href="/blog/post/preprocessing/">Preprocessing<aside class="dates">Jul 14 2019</aside></a>
+        </li>
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.dribbble.com/">
+        circledribble
+    </a>
+    
+    <a class="symbol" href="https://www.facebook.com/">
+        circlefacebook
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/">
+        circlegithub
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/">
+        circletwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2019 Day1
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://dwdsuh.github.io/blog/js/main.js"></script>
+<script src="https://dwdsuh.github.io/blog/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>
