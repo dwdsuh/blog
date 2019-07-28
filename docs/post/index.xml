@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Dayone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jul 2019 21:17:55 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jul 2019 15:27:49 +0900</lastBuildDate>
     
 	<atom:link href="https://dwdsuh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Bash] Shell Script Programming</title>
+      <link>https://dwdsuh.github.io/blog/post/shell_script_programming_2/</link>
+      <pubDate>Sun, 28 Jul 2019 15:27:49 +0900</pubDate>
+      
+      <guid>https://dwdsuh.github.io/blog/post/shell_script_programming_2/</guid>
+      <description>Shell Script Programming source: 이것이 리눅스다. 한빛미디어. 우재남 저
+1. 셸 명령문 기본 문법  명령어 [옵션] [인자]  ls -la rm -rf /mydir find . / -name &amp;quot;*.config&amp;quot;   환경변수
+ 확인하기  #echo $환경변수이름 echo $HOME echo $HOSTNAME   변경하기  #export 환경변수 = 값 export $HOME = day1   2. 셸 스크립트 프로그래밍 실습  C언어와 비슷 변수, 반복문, 제어문 등을 사용할 수 있음 별도로 컴파일하지 않고 텍스트 파일 형태로 셸에서 바로 실행.</description>
+    </item>
     
     <item>
       <title>[Git] Git Command Cheat Sheet / Git 명령어 정리</title>
