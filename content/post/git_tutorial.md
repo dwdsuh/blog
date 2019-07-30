@@ -65,7 +65,8 @@ draft: false
 
 + git overview 
 
-![git_overview](./resources/_gen/images/git_overview.png)
+![git_overview](https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/git_overview.png?raw=true)
+
 
 + add files to the staging area
 
