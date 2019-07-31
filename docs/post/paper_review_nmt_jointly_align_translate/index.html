@@ -22,10 +22,12 @@
 
 
 <meta property="og:title" content="[Paper Review] NMT by Jointly Learning to Align and Translate" />
-<meta property="og:description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL
-1. Motivation: A fixed-length vector is a hurdle  &ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&rdquo; (1)
-&ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&rdquo;(1)
- 1. 1. A basic encoder-decoder architecture:  Encoder   Input: a sequece of vectors: x=(x[1], x[1], x[3] &hellip; x[T]) hidden state: h[t]=f (x[t] , h[t-1]) A fixed-length vector: c=q({h[1], h[2], &hellip; h[T]}) (which is z in the Figure 1)" />
+<meta property="og:description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL: Click Here
+Outline  Motivation: A Fixed-length Vector is a Hurdle  1.1. Basic Encoder-Decoder Architecture
+1.2. The Structural Problem with the Basic Architecture
+ Contribution: the Advent of Alignment Model (aka Attention)  2.1. Model Architecture
+ ​2.1.1. [Encoder: Bidirectional RNN](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#211-encoder-bidirectional-rnn) ​2.1.2. [Decoder: Model Joint Learns How to Align and Translate](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#212-decoder-model-jointly-learns-how-to--align-and-translate)  2.2. Training Procedure
+2.3. Result" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dwdsuh.github.io/blog/post/paper_review_nmt_jointly_align_translate/" />
 <meta property="article:published_time" content="2019-07-31T15:06:35&#43;09:00"/>
@@ -34,15 +36,17 @@
 
 
 <meta itemprop="name" content="[Paper Review] NMT by Jointly Learning to Align and Translate">
-<meta itemprop="description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL
-1. Motivation: A fixed-length vector is a hurdle  &ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&rdquo; (1)
-&ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&rdquo;(1)
- 1. 1. A basic encoder-decoder architecture:  Encoder   Input: a sequece of vectors: x=(x[1], x[1], x[3] &hellip; x[T]) hidden state: h[t]=f (x[t] , h[t-1]) A fixed-length vector: c=q({h[1], h[2], &hellip; h[T]}) (which is z in the Figure 1)">
+<meta itemprop="description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL: Click Here
+Outline  Motivation: A Fixed-length Vector is a Hurdle  1.1. Basic Encoder-Decoder Architecture
+1.2. The Structural Problem with the Basic Architecture
+ Contribution: the Advent of Alignment Model (aka Attention)  2.1. Model Architecture
+ ​2.1.1. [Encoder: Bidirectional RNN](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#211-encoder-bidirectional-rnn) ​2.1.2. [Decoder: Model Joint Learns How to Align and Translate](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#212-decoder-model-jointly-learns-how-to--align-and-translate)  2.2. Training Procedure
+2.3. Result">
 
 
 <meta itemprop="datePublished" content="2019-07-31T15:06:35&#43;09:00" />
 <meta itemprop="dateModified" content="2019-07-31T15:06:35&#43;09:00" />
-<meta itemprop="wordCount" content="411">
+<meta itemprop="wordCount" content="464">
 
 
 
@@ -50,10 +54,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Paper Review] NMT by Jointly Learning to Align and Translate"/>
-<meta name="twitter:description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL
-1. Motivation: A fixed-length vector is a hurdle  &ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&rdquo; (1)
-&ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&rdquo;(1)
- 1. 1. A basic encoder-decoder architecture:  Encoder   Input: a sequece of vectors: x=(x[1], x[1], x[3] &hellip; x[T]) hidden state: h[t]=f (x[t] , h[t-1]) A fixed-length vector: c=q({h[1], h[2], &hellip; h[T]}) (which is z in the Figure 1)"/>
+<meta name="twitter:description" content="Neural Machine Translation by Jointly Learning to Align and Translate Paper URL: Click Here
+Outline  Motivation: A Fixed-length Vector is a Hurdle  1.1. Basic Encoder-Decoder Architecture
+1.2. The Structural Problem with the Basic Architecture
+ Contribution: the Advent of Alignment Model (aka Attention)  2.1. Model Architecture
+ ​2.1.1. [Encoder: Bidirectional RNN](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#211-encoder-bidirectional-rnn) ​2.1.2. [Decoder: Model Joint Learns How to Align and Translate](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#212-decoder-model-jointly-learns-how-to--align-and-translate)  2.2. Training Procedure
+2.3. Result"/>
 <meta name="twitter:site" content="@https://www.twitter.com/"/>
 
 
@@ -89,15 +95,40 @@
     <section id="post-body">
         
 
-<h2 id="neural-machine-translation-by-jointly-learning-to-align-and-translate">Neural Machine Translation by Jointly Learning to Align and Translate</h2>
+<h1 id="neural-machine-translation-by-jointly-learning-to-align-and-translate">Neural Machine Translation by Jointly Learning to Align and Translate</h1>
 
 <hr />
 
-<p><a href="https://arxiv.org/pdf/1409.0473.pdf">Paper URL</a></p>
+<p>Paper URL: <a href="https://arxiv.org/pdf/1409.0473.pdf">Click Here</a></p>
 
-<h3 id="1-motivation-a-fixed-length-vector-is-a-hurdle">1. Motivation: A fixed-length vector is a hurdle</h3>
+<h2 id="outline">Outline</h2>
+
+<ol>
+<li><a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#1-motivation-a-fixed-length-vector-is-a-hurdle">Motivation: A Fixed-length Vector is a Hurdle</a></li>
+</ol>
+
+<p>1.1. <a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#1-1-a-basic-encoder-decoder-architecture">Basic Encoder-Decoder Architecture</a></p>
+
+<p>1.2. <a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#12-the-structural-problem-with-the-basic-architecture">The Structural Problem with the Basic Architecture</a></p>
+
+<ol>
+<li><a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#2-contribution-the-advent-of-alignment-model-aka-attention">Contribution: the Advent of Alignment Model (aka Attention)</a></li>
+</ol>
+
+<p>2.1. <a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#21-model-architecture">Model Architecture</a></p>
+
+<pre><code> ​2.1.1. [Encoder: Bidirectional RNN](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#211-encoder-bidirectional-rnn)
+
+ ​2.1.2. [Decoder: Model Joint Learns How to Align and Translate](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#212-decoder-model-jointly-learns-how-to--align-and-translate)
+</code></pre>
+
+<p>2.2. <a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#22-training-procedure">Training Procedure</a></p>
+
+<p>2.3. <a href="https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#23-result">Result</a></p>
 
 <hr />
+
+<h2 id="1-motivation-a-fixed-length-vector-is-a-hurdle">1. Motivation: A Fixed-length Vector is a Hurdle</h2>
 
 <blockquote>
 <p>&ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&rdquo; (1)</p>
@@ -105,15 +136,15 @@
 <p>&ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&rdquo;(1)</p>
 </blockquote>
 
-<h4 id="1-1-a-basic-encoder-decoder-architecture">1. 1. A basic encoder-decoder architecture:</h4>
+<h3 id="1-1-basic-encoder-decoder-architecture">1. 1. Basic Encoder-Decoder Architecture:</h3>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/encoder_decoder-architecture.png" alt="Figure 1" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/encoder_decoder-architecture.png" alt="Figure 1" /></p>
 
 <ul>
 <li>Encoder</li>
 </ul>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicEncoder_pic.png" alt="Basic Encoder" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicEncoder_pic.png" alt="Basic Encoder" /></p>
 
 <ul>
 <li>Input: a sequece of vectors: <strong>x</strong>=(x[1], x[1], x[3] &hellip; x[T])</li>
@@ -124,60 +155,58 @@
 <li><p>Decoder</p></li>
 </ul>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicDecoder_pic.png" alt="Basic Decoder" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicDecoder_pic.png" alt="Basic Decoder" /></p>
 
 <ul>
 <li><p>hidden state: s[t] = g(s[t-1], y[t-1], c)</p></li>
 
 <li><p>output: <strong>y</strong></p>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicDecoder.png" alt="Conditional Probability" /></p></li>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicDecoder.png" alt="Conditional Probability" /></p></li>
 </ul>
 
-<h4 id="1-2-the-structural-problem-with-the-basic-architecture">1.2. The structural problem with the basic architecture</h4>
+<h3 id="1-2-the-structural-problem-with-the-basic-architecture">1.2. The Structural Problem with the Basic Architecture</h3>
 
 <ul>
 <li>The basic architecture should compress all information in a input sentence into a fixed-length vector, regardless of the sentence length.</li>
 <li>The inflexibility of a fixed-length vector has a harmful effect on the performance especially when the input sentence gets longer.</li>
 </ul>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/longersentecesucks.png" alt="Figure2" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/longersentecesucks.png" alt="Figure2" /></p>
 
-<p>​   * if you are not familiar with the basic encoder-decoder architecture check out <a href="https://arxiv.org/pdf/1406.1078.pdf">Cho <em>et al</em> (2014a)</a> and  <a href="https://www.aclweb.org/anthology/W14-4012">Cho <em>et al</em> (2014b)</a></p>
+<p>​ * if you are not familiar with the basic encoder-decoder architecture check out <a href="https://arxiv.org/pdf/1406.1078.pdf">Cho <em>et al</em> (2014a)</a> and  <a href="https://www.aclweb.org/anthology/W14-4012">Cho <em>et al</em> (2014b)</a></p>
 
-<h3 id="2-contribution-the-advent-of-alignment-model-aka-attention">2. Contribution: the Advent of Alignment model (aka Attention)</h3>
-
-<hr />
+<h2 id="2-contribution-the-advent-of-alignment-model-aka-attention">2. Contribution: the Advent of Alignment model (aka Attention)</h2>
 
 <blockquote>
 <p>&ldquo;[We] propose to extend [a fixed-length vector] by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly&rdquo;(1)</p>
 </blockquote>
 
-<h4 id="2-1-model-architecture">2.1. Model Architecture</h4>
+<h3 id="2-1-model-architecture">2.1. Model Architecture</h3>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlymodel.png" alt="jointlymodel" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlymodel.png" alt="jointlymodel" /></p>
 
-<h5 id="encoder-bidirectional-rnn">Encoder: Bidirectional RNN</h5>
+<h4 id="2-1-1-encoder-bidirectional-rnn">2.1.1. Encoder: Bidirectional RNN</h4>
 
 <ul>
 <li>Why BiRNN?</li>
 </ul>
 
-<p>Make h[j] to summerize both the preceding words and the following words, focusing on the neighborhood of x[j].</p>
+<p>Allow h[j] to summerize both the preceding words and the following words, focusing on the neighborhood of x[j].</p>
 
 <ul>
 <li>Hidden State <strong>h</strong>: Concatenating <em>forward hidden state</em> and <em>backward hidden state</em></li>
 </ul>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/BiRNNhiddenstate.png" alt="BiRNN hidden state" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/BiRNNhiddenstate.png" alt="BiRNN hidden state" /></p>
 
-<h5 id="decoder-model-jointly-learns-how-to-align-and-translate">Decoder: Model Jointly Learns How to  Align and Translate</h5>
+<h4 id="2-1-2-decoder-model-jointly-learns-how-to-align-and-translate">2.1.2. Decoder: Model Jointly Learns How to  Align and Translate</h4>
 
 <ul>
 <li>Overview</li>
 </ul>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlyoverview.png" alt="overview" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlyoverview.png" alt="overview" /></p>
 
 <ul>
 <li><p>Model in detail: Activation functions</p>
@@ -186,7 +215,7 @@
 <li><strong>g</strong> : deep output with a single maxout hidden layer</li>
 </ol>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationFunctionG.png" alt="activationfunctionG" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationFunctionG.png" alt="activationfunctionG" /></p>
 
 <ol>
 <li><strong>f</strong> : GRU
@@ -194,7 +223,7 @@
 <br /></li>
 </ol>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationfunctionF.png" alt="activationfunctionG" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationfunctionF.png" alt="activationfunctionG" /></p>
 
 <ul>
 <li>z[i] is a update gate that decides the ratio between the previous hidden state and the new hidden state.</li>
@@ -209,10 +238,10 @@
 <br /></li>
 </ol>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationfunctionA.png" alt="activationfunctionA" /></p></li>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationfunctionA.png" alt="activationfunctionA" /></p></li>
 </ul>
 
-<h4 id="2-2-training-procedure">2.2 Training Procedure</h4>
+<h3 id="2-2-training-procedure">2.2. Training Procedure</h3>
 
 <ul>
 <li><p>Dataset</p>
@@ -225,7 +254,7 @@
 <li><p>Preprocessing</p>
 
 <ul>
-<li>usually toknenization(Moses)</li>
+<li>simple toknenization(Moses)</li>
 <li>utilized 30,000 most frequently used words</li>
 </ul></li>
 
@@ -235,7 +264,7 @@
 
 <ul>
 <li>optimizer: SGD</li>
-<li>Adapting the learning rate: <a href="https://arxiv.org/pdf/1212.5701.pdf">Adadelta</a> (ε = 10−6 and ρ = 0.95)</li>
+<li>Adapting the learning rate: <a href="https://arxiv.org/pdf/1212.5701.pdf">Adadelta</a> (ε = 10^(−6) and ρ = 0.95)</li>
 <li>batch_size:  80 sentences</li>
 <li>normalized the L2-norm of the gradient of the cost function each time to be at most a predefined threshold of 1, when the norm was larger than the threshold. <a href="http://proceedings.mlr.press/v28/pascanu13.pdf">Pascanu <em>et al</em> (2013b)</a>
 
@@ -243,9 +272,9 @@
 </ul></li>
 </ul>
 
-<h4 id="2-3-result">2.3 Result</h4>
+<h3 id="2-3-result">2.3. Result</h3>
 
-<p><img src="/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlyresult.png" alt="result" /></p>
+<p><img src="https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlyresult.png" alt="result" /></p>
 
     </section>
 </article>

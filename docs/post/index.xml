@@ -17,10 +17,12 @@
       <pubDate>Wed, 31 Jul 2019 15:06:35 +0900</pubDate>
       
       <guid>https://dwdsuh.github.io/blog/post/paper_review_nmt_jointly_align_translate/</guid>
-      <description>Neural Machine Translation by Jointly Learning to Align and Translate Paper URL
-1. Motivation: A fixed-length vector is a hurdle  &amp;ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&amp;rdquo; (1)
-&amp;ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&amp;rdquo;(1)
- 1. 1. A basic encoder-decoder architecture:  Encoder   Input: a sequece of vectors: x=(x[1], x[1], x[3] &amp;hellip; x[T]) hidden state: h[t]=f (x[t] , h[t-1]) A fixed-length vector: c=q({h[1], h[2], &amp;hellip; h[T]}) (which is z in the Figure 1)</description>
+      <description>Neural Machine Translation by Jointly Learning to Align and Translate Paper URL: Click Here
+Outline  Motivation: A Fixed-length Vector is a Hurdle  1.1. Basic Encoder-Decoder Architecture
+1.2. The Structural Problem with the Basic Architecture
+ Contribution: the Advent of Alignment Model (aka Attention)  2.1. Model Architecture
+ ​2.1.1. [Encoder: Bidirectional RNN](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#211-encoder-bidirectional-rnn) ​2.1.2. [Decoder: Model Joint Learns How to Align and Translate](https://github.com/dwdsuh/Paper_Review/blob/master/NMTbyJointlyAlignTranslate.md#212-decoder-model-jointly-learns-how-to--align-and-translate)  2.2. Training Procedure
+2.3. Result</description>
     </item>
     
     <item>
