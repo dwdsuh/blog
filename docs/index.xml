@@ -6,10 +6,22 @@
     <description>Recent content on Dayone&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jul 2019 15:27:49 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jul 2019 15:06:35 +0900</lastBuildDate>
     
 	<atom:link href="https://dwdsuh.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Paper Review] NMT by Jointly Learning to Align and Translate</title>
+      <link>https://dwdsuh.github.io/blog/post/paper_review_nmt_jointly_align_translate/</link>
+      <pubDate>Wed, 31 Jul 2019 15:06:35 +0900</pubDate>
+      
+      <guid>https://dwdsuh.github.io/blog/post/paper_review_nmt_jointly_align_translate/</guid>
+      <description>Neural Machine Translation by Jointly Learning to Align and Translate Paper URL
+1. Motivation: A fixed-length vector is a hurdle  &amp;ldquo;the use of a fixed-length vector is a bottleneck in improving the perfomance of [the] basic encoder-decoder architecture&amp;rdquo; (1)
+&amp;ldquo;Cho et al.(2014b) showed that indeed the performance of a biasic encoder-decoder deteriorates rapidly as the length of an input sentence increases&amp;rdquo;(1)
+ 1. 1. A basic encoder-decoder architecture:  Encoder   Input: a sequece of vectors: x=(x[1], x[1], x[3] &amp;hellip; x[T]) hidden state: h[t]=f (x[t] , h[t-1]) A fixed-length vector: c=q({h[1], h[2], &amp;hellip; h[T]}) (which is z in the Figure 1)</description>
+    </item>
     
     <item>
       <title>[Bash] Shell Script Programming</title>
