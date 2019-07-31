@@ -23,11 +23,11 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 
 
-![Figure 1](/Users/kakao/dayoneblog/content/post/resources/_gen/images/encoder_decoder-architecture.png)
+![Figure 1](https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/encoder_decoder-architecture.png)
 
 - Encoder
 
-  ![Basic Encoder](/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicEncoder_pic.png)
+  ![Basic Encoder](https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicEncoder_pic.png)
  
   
 
@@ -37,13 +37,13 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 - Decoder
 
-  ![Basic Decoder](/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicDecoder_pic.png)
+  ![Basic Decoder](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicDecoder_pic.png)
 
   - hidden state: s[t] = g(s[t-1], y[t-1], c)
 
   - output: **y** 
 
-    ![Conditional Probability](/Users/kakao/dayoneblog/content/post/resources/_gen/images/basicDecoder.png)
+    ![Conditional Probability](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/basicDecoder.png)
 
   
 
@@ -54,7 +54,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 - The basic architecture should compress all information in a input sentence into a fixed-length vector, regardless of the sentence length.
 - The inflexibility of a fixed-length vector has a harmful effect on the performance especially when the input sentence gets longer.
 
-![Figure2](/Users/kakao/dayoneblog/content/post/resources/_gen/images/longersentecesucks.png)
+![Figure2](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/longersentecesucks.png)
 
 ​	\* if you are not familiar with the basic encoder-decoder architecture check out [Cho *et al* (2014a)](https://arxiv.org/pdf/1406.1078.pdf) and  [Cho *et al* (2014b)](https://www.aclweb.org/anthology/W14-4012)
 
@@ -82,7 +82,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 
 
-![jointlymodel](/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlymodel.png)
+![jointlymodel](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlymodel.png)
 
 ##### Encoder: Bidirectional RNN
 
@@ -92,7 +92,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 - Hidden State **h**: Concatenating *forward hidden state* and *backward hidden state*
 
-  ![BiRNN hidden state](/Users/kakao/dayoneblog/content/post/resources/_gen/images/BiRNNhiddenstate.png)
+  ![BiRNN hidden state](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/BiRNNhiddenstate.png)
 
 
 
@@ -100,13 +100,13 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 - Overview
 
-![overview](/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlyoverview.png)
+![overview](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlyoverview.png)
 
 - Model in detail: Activation functions
 
   1. **g** : deep output with a single maxout hidden layer
 
-     ![activationfunctionG](/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationFunctionG.png)
+     ![activationfunctionG](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationFunctionG.png)
 
      
 
@@ -116,7 +116,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
      
 
-     ![activationfunctionG](/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationfunctionF.png)
+     ![activationfunctionG](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationfunctionF.png)
 
      
 
@@ -129,7 +129,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
      
 
-     ![activationfunctionA](/Users/kakao/dayoneblog/content/post/resources/_gen/images/activationfunctionA.png)
+     ![activationfunctionA](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/activationfunctionA.png)
 
      
 
@@ -158,7 +158,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 #### 2.3 Result
 
-![result](/Users/kakao/dayoneblog/content/post/resources/_gen/images/jointlyresult.png)
+![result](/https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlyresult.png)
 
 
 
