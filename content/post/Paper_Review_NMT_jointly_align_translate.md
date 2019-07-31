@@ -3,6 +3,8 @@ title: "[Paper Review] NMT by Jointly Learning to Align and Translate"
 date: 2019-07-31T15:06:35+09:00
 draft: false
 ---
+
+
 ## Neural Machine Translation by Jointly Learning to Align and Translate
 
 ------
@@ -10,6 +12,8 @@ draft: false
 
 
 Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
+
+
 
 
 
@@ -72,7 +76,6 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 ### 2. Contribution: the Advent of Alignment model (aka Attention)
 
-------
 
 
 
@@ -84,7 +87,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 ![jointlymodel](https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlymodel.png)
 
-##### Encoder: Bidirectional RNN
+##### 2.1.1. Encoder: Bidirectional RNN
 
 - Why BiRNN? 
 
@@ -96,7 +99,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
 
 
-##### Decoder: Model Jointly Learns How to  Align and Translate
+##### 2.1.2. Decoder: Model Jointly Learns How to  Align and Translate
 
 - Overview
 
@@ -133,7 +136,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
      
 
-#### 2.2 Training Procedure
+#### 2.2. Training Procedure
 
 - Dataset
 
@@ -156,7 +159,7 @@ Paper URL: [Click Here](https://arxiv.org/pdf/1409.0473.pdf)
 
   
 
-#### 2.3 Result
+#### 2.3. Result
 
 ![result](https://github.com/dwdsuh/blog/blob/master/content/post/resources/_gen/images/jointlyresult.png)
 
